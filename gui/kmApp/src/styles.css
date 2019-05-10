@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* Add padding for the nav bar */
+body {
+  padding-top: 4.5rem;
+}
+
+/* Style debug info in alerts */
+.alert-pre {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+button {
+    background-color: rgb(212, 211, 211);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    cursor: hand;
+}
+  
+button:hover {
+    background-color: #cfd8dc;
+}
+
+button.delete {
+position: relative;
+left: 194px;
+top: -32px;
+background-color: gray !important;
+color: white;
+}
