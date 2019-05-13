@@ -3,11 +3,8 @@
   <h1 class="bienvenido">Bienvenido!</h1>
   <div *ngIf="authService.authenticated; then welcomeUser else signInPrompt"></div>
   <ng-template #welcomeUser>
-    <!-- CAMBIAR VENTA A MENU PRINCIPAL -->
+    <!-- CAMBIAR VENTANA A MENU PRINCIPAL -->
     <button hidden id="menu" routerLink="../menuPrincipal"></button>
     <h4>{{ authService.user.displayName }}</h4>
-  </ng-template>
-  <ng-template #signInPrompt>
-    <button href="javascript:undefined" role="button" (click)="signIn()">Iniciar Sesión</button>
   </ng-template>
 </div>
