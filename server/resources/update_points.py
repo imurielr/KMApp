@@ -3,15 +3,10 @@
 from flask import request
 from flask_restful import Resource
 
-from pymongo import MongoClient
+from resources.connect_to_DB import client, db
 
 import json
 from bson import json_util
-
-# Connect to the database host given by MongoDB URI
-client = MongoClient('mongodb://imurielr:gdoHZU57@knowledgemanagment-shard-00-00-bxu9d.mongodb.net:27017,knowledgemanagment-shard-00-01-bxu9d.mongodb.net:27017,knowledgemanagment-shard-00-02-bxu9d.mongodb.net:27017/test?ssl=true&replicaSet=KnowledgeManagment-shard-0&authSource=admin&retryWrites=true')
-# Access to the specific database
-db = client.KMDB
 
 collection = db.Usuario
 
@@ -20,6 +15,7 @@ class UpdatePoints(Resource):
 
     def put(self, user_id, num_points):
         """ Update users points adding to the existing ones 'num_points' """
+        # curl http://localhost:5000/<usuario>/<puntos> -X PUT
 
         query = {"usuario": user_id}   # Look for the given user in the database
         result = list(collection.find(query, { "_id": 0, "usuario": 1, "puntos": 1 }))   # Get a list with the results

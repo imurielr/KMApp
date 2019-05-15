@@ -3,7 +3,7 @@
 from flask import request
 from flask_restful import Resource, reqparse
 
-from pymongo import MongoClient
+from resources.connect_to_DB import client, db
 
 import datetime
 
@@ -11,17 +11,13 @@ import datetime
 parser = reqparse.RequestParser()
 parser.add_argument('usuario')
 
-# Connect to the database host given by MongoDB URI
-client = MongoClient('mongodb://imurielr:gdoHZU57@knowledgemanagment-shard-00-00-bxu9d.mongodb.net:27017,knowledgemanagment-shard-00-01-bxu9d.mongodb.net:27017,knowledgemanagment-shard-00-02-bxu9d.mongodb.net:27017/test?ssl=true&replicaSet=KnowledgeManagment-shard-0&authSource=admin&retryWrites=true')
-# Access to the specific database
-db = client.KMDB
-
 collection = db.Usuario
 
 class AddUser(Resource):
     """ Class to add a new user to the database """
         
     def post(self):  
+        # curl http://localhost:5000/ -d "usuario=<usuario>" -X POST 
         args = parser.parse_args(strict=True) # Parse the given arguments
         # Create a dicttionary containing the info given in the arguments
         new_user = {
@@ -32,6 +28,6 @@ class AddUser(Resource):
         # Add the new user to the database
         try:
             user_id = collection.insert_one(new_user)
-            return 200
+            return "Usuario añadido exitosamente"
         except:
             return "El usuario ya existe"
