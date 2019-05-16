@@ -14,6 +14,8 @@ import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AlertsComponent } from './alerts/alerts.component';
 
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+
 import { MsalModule } from '@azure/msal-angular';
 import { OAuthSettings } from '../oauth';
 
@@ -32,12 +34,13 @@ library.add(faUserCircle);
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    AmplifyAngularModule,
     FontAwesomeModule,
     MsalModule.forRoot({
       clientID: OAuthSettings.appId
     })
   ],
-  providers: [],
+  providers: [AmplifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
