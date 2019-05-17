@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AlertsComponent } from './alerts/alerts.component';
 
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+// import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 import { MsalModule } from '@azure/msal-angular';
 import { OAuthSettings } from '../oauth';
@@ -32,15 +33,17 @@ library.add(faUserCircle);
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    AmplifyAngularModule,
+    // AmplifyAngularModule,
     FontAwesomeModule,
     MsalModule.forRoot({
       clientID: OAuthSettings.appId
     })
   ],
-  providers: [AmplifyService],
+  // providers: [AmplifyService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

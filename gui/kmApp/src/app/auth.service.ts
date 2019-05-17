@@ -55,7 +55,7 @@ export class AuthService {
     return result;
   }
 
-  private async getUser(): Promise<User> {
+  async getUser(): Promise<User> {
     if (!this.authenticated) return null;
   
     let graphClient = Client.init({
@@ -86,5 +86,36 @@ export class AuthService {
     user.email = graphUser.mail || graphUser.userPrincipalName;
   
     return user;
+  }
+
+  async getEmail(){
+    let graphClient = Client.init({
+      // Initialize the Graph client with an auth
+      // provider that requests the token from the
+      // auth service
+      authProvider: async(done) => {
+        let token = await this.getAccessToken()
+          .catch((reason) => {
+            done(reason, null);
+          });
+  
+        if (token)
+        {
+          done(null, token);
+        } else {
+          done("Could not get an access token", null);
+        }
+      }
+    });
+  
+    // Get the user from Graph (GET /me)
+    let graphUser = await graphClient.api('/me').get();
+  
+    let user = new User();
+    // Prefer the mail property, but fall back to userPrincipalName
+    user.email = graphUser.mail || graphUser.userPrincipalName;
+    console.log(user.email);
+  
+    return user.email;
   }
 }
