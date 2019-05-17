@@ -28,6 +28,6 @@ class AddUser(Resource):
         # Add the new user to the database
         try:
             user_id = collection.insert_one(new_user)
-            return "Usuario añadido exitosamente"
+            return "Usuario agregado exitosamente"
         except:
             return "El usuario ya existe"
