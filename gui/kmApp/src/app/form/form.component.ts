@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
 
 }
