@@ -6,5 +6,7 @@
     <!-- CAMBIAR VENTANA A MENU PRINCIPAL -->
     <button hidden id="menu" routerLink="../menuPrincipal"></button>
     <h4>{{ authService.user.displayName }}</h4>
+    <p>Puntos: {{ authService.user.puntos }}</p>
+    <button routerLink="../form">Añadir Entrada</button>
   </ng-template>
 </div>

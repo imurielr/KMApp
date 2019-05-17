@@ -7,6 +7,10 @@ import { User } from './user';
 
 import { Client } from '@microsoft/microsoft-graph-client';
 
+import { HttpClient } from '@angular/common/http';
+
+import { API_URL } from './env';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +20,8 @@ export class AuthService {
 
   constructor(
     private msalService: MsalService,
-    private alertsService: AlertsService) {
+    private alertsService: AlertsService,
+    private http: HttpClient) {
   
     this.authenticated = this.msalService.getUser() != null;
     this.getUser().then((user) => {this.user = user});
@@ -84,38 +89,32 @@ export class AuthService {
     user.displayName = graphUser.displayName;
     // Prefer the mail property, but fall back to userPrincipalName
     user.email = graphUser.mail || graphUser.userPrincipalName;
+
+    await this.addUser(user.email);    
   
     return user;
   }
 
-  async getEmail(){
-    let graphClient = Client.init({
-      // Initialize the Graph client with an auth
-      // provider that requests the token from the
-      // auth service
-      authProvider: async(done) => {
-        let token = await this.getAccessToken()
-          .catch((reason) => {
-            done(reason, null);
-          });
-  
-        if (token)
-        {
-          done(null, token);
-        } else {
-          done("Could not get an access token", null);
-        }
-      }
+  getPoints(user: string){
+    this.http.get(`${API_URL}/${user}`).subscribe(data => {
+      this.setPoints(<Number> data);
     });
-  
-    // Get the user from Graph (GET /me)
-    let graphUser = await graphClient.api('/me').get();
-  
-    let user = new User();
-    // Prefer the mail property, but fall back to userPrincipalName
-    user.email = graphUser.mail || graphUser.userPrincipalName;
-    console.log(user.email);
-  
-    return user.email;
+  }
+
+  setPoints(points: Number){
+    this.user.puntos = points;
+  }
+
+  addUser(usuario: string){
+    // ADD NEW USER
+      const req = this.http.post(`${API_URL}/`, {
+        usuario: usuario
+      })
+      .subscribe(
+        res => {
+          console.log(res);
+          this.getPoints(usuario);
+        }
+      );
   }
 }

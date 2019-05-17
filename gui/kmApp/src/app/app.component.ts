@@ -1,23 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { API_URL } from './env'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'kmApp';
   results = '';
 
   constructor(private http: HttpClient) { }
-
-  ngOnInit(): void{
-    // this.http.get(`${API_URL}/imurielr`).subscribe(data => {
-    //   console.log(data);
-    // });
-  }
-
 }

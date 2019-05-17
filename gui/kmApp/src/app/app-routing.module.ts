@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'menuPrincipal',
-    component: MenuPrincipalComponent
+    path: 'form',
+    component: FormComponent
   }
 ];
 

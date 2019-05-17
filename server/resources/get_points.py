@@ -21,6 +21,6 @@ class GetPoints(Resource):
         if len(points) > 0:   # If the  user exists return its points
             points = json.dumps(points, default=json_util.default)
             result = json.loads(points)
-            return "Puntos: {}".format(result[0]["puntos"])
+            return result[0]["puntos"]
         else:
             return "Usuario no existe"

@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -19,6 +18,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 
 import { MsalModule } from '@azure/msal-angular';
 import { OAuthSettings } from '../oauth';
+import { FormComponent } from './form/form.component';
 
 library.add(faExternalLinkAlt);
 library.add(faUserCircle);
@@ -27,9 +27,9 @@ library.add(faUserCircle);
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuPrincipalComponent,
     NavBarComponent,
-    AlertsComponent
+    AlertsComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
