@@ -2,10 +2,15 @@
   <br><br><br><br>
   <h3>Objeto de Conocimiento</h3>
   <form>
+    <br>
     <div class="form-group">
       <label for="titulo">Titulo</label>
       <input type="text" class="form-control" id="titulo" required>
     </div>
+    <div class="form-group">
+        <label for="responsable">Responsable</label>
+        <input type="text" class="form-control" id="responsable" required>
+      </div>
     <div class="form-group">
       <label for="especialidad">Especialidad</label>
       <select class="form-control" id="especialidad" required>
@@ -14,8 +19,11 @@
     </div>
     <div class="form-group">
       <label for="area">Área</label>
-      <input type="text" class="form-control" id="area" required>
+      <input type="text" class="form-control" id="area" required> 
     </div>
-    <button type="submit" class="btn btn-success">Añadir</button>
   </form>
+  <div style="text-align: center">
+      <button class="btn btn-success" routerLink="/home">Atras</button>
+      <button style="margin-left: 5px" class="btn btn-success" (click)="onSubmit()">Añadir</button>
+  </div>
 </div>

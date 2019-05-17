@@ -1,0 +1,16 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+
+.container{
+    width: 500px;
+}
+
+.btn{
+    background-color: rgb(23, 69, 136);
+    border-color: rgb(23, 69, 136);
+}
