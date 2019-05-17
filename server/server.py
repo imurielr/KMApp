@@ -11,6 +11,7 @@ from resources.add_knowledge import AddKnowledge
 from resources.add_user import AddUser
 from resources.update_points  import UpdatePoints
 
+print('Ejecutando servidor')
 # Create the app and define it as a rest api.
 app = Flask(__name__)
 api = Api(app)
