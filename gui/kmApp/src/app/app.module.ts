@@ -27,7 +27,7 @@ library.add(faUserCircle);
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent,
+    NavBarComponent,   
     AlertsComponent,
     FormComponent
   ],
