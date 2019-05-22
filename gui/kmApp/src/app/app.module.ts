@@ -19,6 +19,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { MsalModule } from '@azure/msal-angular';
 import { OAuthSettings } from '../oauth';
 import { FormComponent } from './form/form.component';
+import { Top10Component } from './top10/top10.component';
 
 library.add(faExternalLinkAlt);
 library.add(faUserCircle);
@@ -29,7 +30,8 @@ library.add(faUserCircle);
     HomeComponent,
     NavBarComponent,   
     AlertsComponent,
-    FormComponent
+    FormComponent,
+    Top10Component
   ],
   imports: [
     BrowserModule,
