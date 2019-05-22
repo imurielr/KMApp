@@ -16,7 +16,6 @@ export class FormComponent {
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
 
-  // titulo = (<HTMLInputElement>document.getElementById('titulo'))
   titulo: string;
   responsable: string;
   especialidad: string;
@@ -24,9 +23,10 @@ export class FormComponent {
   
   submitted = false;
 
-  onSubmit(){
+  async onSubmit(){
     this.titulo = ((document.getElementById('titulo') as HTMLInputElement).value);
-    this.responsable = ((document.getElementById('responsable') as HTMLInputElement).value);
+    // this.responsable = ((document.getElementById('responsable') as HTMLInputElement).value);
+    await this.authService.getUser().then(res => { this.setName(res['displayName']) });
     this.especialidad = ((document.getElementById('especialidad') as HTMLInputElement).value);
     this.area = ((document.getElementById('area') as HTMLInputElement).value);
     this.postEntry(this.titulo, this.responsable, this.especialidad, this.area);
@@ -57,13 +57,17 @@ export class FormComponent {
   } 
 
   updatePoints(usuario: string){
-    const req = this.http.put(`${API_URL}/${usuario}/5`, {})
+    const req = this.http.put(`${API_URL}/update_points/${usuario}/5`, {})
     .subscribe(
       res => {
         console.log(res);
         window.open('/home', '_self', '', false);
       }
     );
+  }
+
+  setName(nombre: string){
+    this.responsable = nombre;
   }
 
 }

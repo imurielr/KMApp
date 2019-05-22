@@ -96,7 +96,7 @@ export class AuthService {
   }
 
   getPoints(user: string){
-    this.http.get(`${API_URL}/${user}`).subscribe(data => {
+    this.http.get(`${API_URL}/points/${user}`).subscribe(data => {
       this.setPoints(<Number> data);
     });
   }
@@ -107,12 +107,11 @@ export class AuthService {
 
   addUser(usuario: string){
     // ADD NEW USER
-      const req = this.http.post(`${API_URL}/`, {
+      const req = this.http.post(`${API_URL}/add_user`, {
         usuario: usuario
       })
       .subscribe(
         res => {
-          console.log(res);
           this.getPoints(usuario);
         }
       );

@@ -10,6 +10,7 @@ from resources.get_points import GetPoints
 from resources.add_knowledge import AddKnowledge
 from resources.add_user import AddUser
 from resources.update_points  import UpdatePoints
+from resources.get_outdated_documents import GetOutdated
 
 print('Ejecutando servidor')
 # Create the app and define it as a rest api.
@@ -18,10 +19,11 @@ api = Api(app)
 CORS(app)  # Allow all domains to access the server
 
 # add every resource to a specific url endpoint
-api.add_resource(GetPoints, '/<string:user_id>')
-api.add_resource(AddKnowledge, '/docs')
-api.add_resource(AddUser, '/')
-api.add_resource(UpdatePoints, '/<string:user_id>/<string:num_points>')
+api.add_resource(GetPoints, "/points/<string:user_id>")
+api.add_resource(AddKnowledge, "/docs")
+api.add_resource(AddUser, "/add_user")
+api.add_resource(UpdatePoints, "/update_points/<string:user_id>/<string:num_points>")
+api.add_resource(GetOutdated, "/outdated/<string:user>")
 
 # Main --> run the server
 if __name__ == "__main__":
