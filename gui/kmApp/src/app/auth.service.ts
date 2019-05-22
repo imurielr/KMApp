@@ -101,6 +101,7 @@ export class AuthService {
     });
   }
 
+
   setPoints(points: Number){
     this.user.puntos = points;
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-top10',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Top10Component implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
   }
