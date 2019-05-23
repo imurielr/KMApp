@@ -15,8 +15,13 @@ class GetTop(Resource):
 
     def get(self):
         """ Get users points """
-        # curl http://localhost:5000/<usuario>
-        points = list(db.collection.find().sort({"puntos":-1}).limit(10) )   # Get a list with the resultsc      
+        # curl http://localhost:5000/get_top
+
+        points = list(collection.find().sort([('puntos', -1)]).limit(10))  # Get a list with the results
         points= json.dumps(points, default=json_util.default)
-        return points
+        result = json.loads(points)
+        top = []
+        for i in range(0, len(result)):
+            top.append({'usuario':(result[i]['usuario']),'puntos':(result[i]['puntos'])})
+        return top
         
