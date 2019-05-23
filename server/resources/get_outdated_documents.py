@@ -24,7 +24,7 @@ class GetOutdated(Resource):
 
         query = {
             'responsable': user,
-            'ultima_modificacion': { '$lt': date} 
+            'ultima_modificacion': {'$lt': date} 
         }
         documents = list(collection.find(query))
         if len(documents) > 0:

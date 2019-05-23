@@ -5,7 +5,6 @@ import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 
 import { API_URL } from '../env';
-import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,14 +15,14 @@ export class NavBarComponent implements OnInit {
 
   // Should the collapsed nav show?
   showNav: boolean;
+  showNotif: boolean;
 
-  public documents = []
+  public documents = this.authService.getUser().then(res => this.getOutdated(res['displayName']))
   
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
     this.showNav = false;
-    this.authService.getUser().then(res => this.getOutdated(res['displayName']))
   }
 
   // Used by the Bootstrap navbar-toggler button to hide/show
@@ -34,6 +33,7 @@ export class NavBarComponent implements OnInit {
 
   async signIn(): Promise<void> {
     await this.authService.signIn();
+    await this.authService.getUser().then(res => this.getOutdated(res['displayName']))
   }
 
   signOut(): void {
@@ -47,7 +47,13 @@ export class NavBarComponent implements OnInit {
   }
 
   setDocuments(docs){
-    this.documents = docs;
+    if(docs === "No hay documentos desactualizados"){
+      this.showNotif = false;
+    }
+    else{
+      this.documents = docs;
+      this.showNotif = true;
+    }
   }
 
 }
