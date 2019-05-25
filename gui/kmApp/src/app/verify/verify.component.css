@@ -1,0 +1,25 @@
+#verify {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    /* margin: 0 auto; */
+  }
+  
+#verify td, #verify th {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+
+#verify tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#verify tr:hover {
+  background-color: #ddd;
+}
+
+.btn{
+  background-color: rgb(23, 69, 136);
+  border-color: rgb(23, 69, 136);
+  color: white;
+}

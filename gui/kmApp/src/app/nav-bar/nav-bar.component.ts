@@ -17,7 +17,8 @@ export class NavBarComponent implements OnInit {
   showNav: boolean;
   showNotif: boolean;
 
-  public documents = this.authService.getUser().then(res => this.getOutdated(res['displayName']))
+  public charge = this.authService.getUser().then(user => this.getCharge(user.email));
+  public documents = this.authService.getUser().then(user => this.getOutdated(user.displayName));
   
   constructor(private authService: AuthService, private http: HttpClient) { }
 
@@ -33,7 +34,8 @@ export class NavBarComponent implements OnInit {
 
   async signIn(): Promise<void> {
     await this.authService.signIn();
-    await this.authService.getUser().then(res => this.getOutdated(res['displayName']))
+    await this.authService.getUser().then(user => this.getOutdated(user.displayName));
+    await this.authService.getUser().then(user => this.getCharge(user.email));
   }
 
   signOut(): void {
@@ -54,6 +56,16 @@ export class NavBarComponent implements OnInit {
       this.documents = docs;
       this.showNotif = true;
     }
+  }
+
+  getCharge(usuario: string): void{
+    this.http.get(`${API_URL}/tipo/${usuario}`).subscribe(data => {
+      this.setCharge(data);
+    })
+  }
+
+  setCharge(charge){
+    this.charge = charge;
   }
 
 }

@@ -13,6 +13,7 @@ from resources.update_points  import UpdatePoints
 from resources.get_outdated_documents import GetOutdated
 from resources.get_top import GetTop
 from resources.get_charge import GetCharge
+from resources.get_documents import GetDocuments
 
 print('Ejecutando servidor')
 # Create the app and define it as a rest api.
@@ -27,7 +28,9 @@ api.add_resource(AddKnowledge, "/docs")
 api.add_resource(AddUser, "/add_user")
 api.add_resource(UpdatePoints, "/update_points/<string:user_id>/<string:num_points>")
 api.add_resource(GetOutdated, "/outdated/<string:user>")
-api.add_resource(GetCharge,"/tipo/<string:user_id>")
+api.add_resource(GetCharge, "/tipo/<string:user_id>")
+api.add_resource(GetDocuments, "/get_docs")
+
 
 # Main --> run the server
 if __name__ == "__main__":

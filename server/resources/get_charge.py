@@ -14,7 +14,7 @@ class GetCharge(Resource):
     """ Class to get the users points from the database """
 
     def get(self, user_id):
-        """ Get users points """
+        """ Get users charge """
         # curl http://localhost:5000/<usuario>
         query = {"usuario": user_id}   # Look for the given user in the database
         points = list(collection.find(query, { "_id": 0, "usuario": 1,"puntos":1, "tipo": 1 }))   # Get a list with the results
