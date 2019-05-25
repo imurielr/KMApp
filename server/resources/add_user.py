@@ -23,6 +23,7 @@ class AddUser(Resource):
         new_user = {
                     "usuario": args["usuario"],
                     "puntos": 5,
+                    "tipo":"Practicante",
                 }
 
         # Add the new user to the database

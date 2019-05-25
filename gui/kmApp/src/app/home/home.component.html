@@ -9,5 +9,6 @@
     <p>Puntos: {{ authService.user.puntos }}</p>
     <button routerLink="../form">Añadir Entrada</button>  
     <button routerLink="../top10" style="margin-left: 5px">Ver top 10</button>
+    <button *ngIf=true routerLink="../verify" style="margin-left: 10px">Verificar conocimiento</button>
   </ng-template>
 </div>

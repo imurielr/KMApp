@@ -3,4 +3,5 @@ export class User {
     email: string;
     avatar: string;
     puntos: Number;
+    tipo: string;
 }

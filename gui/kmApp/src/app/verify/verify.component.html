@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <table id="verify">
+      <tr style="background-color: rgb(23, 69, 136); color: white">
+        <th></th>
+        <th>Objeto de conocimiento</th>
+      </tr>
+      <tr *ngFor="let user of top; index as i">
+        <td><button class="btn" routerLink="/home">Verificar</button></td>
+        <td>{{i+1}}</td>
+      </tr>
+    </table>
+    <br>
+    <button class="btn" routerLink="/home">Atras</button>
+  </body>
+</html>

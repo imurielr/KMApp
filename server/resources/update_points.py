@@ -18,7 +18,7 @@ class UpdatePoints(Resource):
         # curl http://localhost:5000/<usuario>/<puntos> -X PUT
 
         query = {"usuario": user_id}   # Look for the given user in the database
-        result = list(collection.find(query, { "_id": 0, "usuario": 1, "puntos": 1 }))   # Get a list with the results
+        result = list(collection.find(query, { "_id": 0, "usuario": 1, "puntos": 1, "tipo":1 }))   # Get a list with the results
         if len(result) > 0:   # If the user exists add 'num_points' to the existing ones
             result = json.dumps(result, default=json_util.default)
             points = json.loads(result)
