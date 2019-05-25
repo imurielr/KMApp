@@ -18,8 +18,20 @@
   background-color: #ddd;
 }
 
-.btn{
+.btn#atras{
   background-color: rgb(23, 69, 136);
   border-color: rgb(23, 69, 136);
   color: white;
+}
+
+.btn{
+  background-color: rgb(166, 250, 225);
+  border-color: rgb(166, 250, 225);
+  color: black;
+  padding: 1px;
+}
+
+.btn:hover{
+  background-color: rgb(44, 184, 142);
+  border-color: rgb(44, 184, 142);
 }

@@ -10,6 +10,7 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { HttpClient } from '@angular/common/http';
 
 import { API_URL } from './env';
+import { faHardHat } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -89,6 +90,8 @@ export class AuthService {
     user.displayName = graphUser.displayName;
     // Prefer the mail property, but fall back to userPrincipalName
     user.email = graphUser.mail || graphUser.userPrincipalName;
+
+    await this.http.get(`${API_URL}/tipo/${user.email}`).subscribe(data => { user.tipo = data.toString()});
 
     await this.addUser(user.email);    
   

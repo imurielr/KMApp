@@ -5,10 +5,10 @@
   <ng-template #welcomeUser>
     <!-- CAMBIAR VENTANA A MENU PRINCIPAL -->
     <button hidden id="menu" routerLink="../menuPrincipal"></button>
-    <h4>{{ authService.user.displayName }}</h4>
-    <p>Puntos: {{ authService.user.puntos }}</p>
+    <h4>{{ authService?.user?.displayName }}</h4>
+    <p>Puntos: {{ authService?.user?.puntos }}</p>
     <button routerLink="../form">Añadir Entrada</button>  
     <button routerLink="../top10" style="margin-left: 5px">Ver top 10</button>
-    <button *ngIf="show | async as show" id="verify" routerLink="../verify" style="margin-left: 10px">Verificar conocimiento</button>
+    <button *ngIf="(authService?.user?.tipo == 'Director') || (authService?.user?.tipo == 'Experto')" id="verify" routerLink="../verify" style="margin-left: 10px">Verificar conocimiento</button>  
   </ng-template>
 </div>

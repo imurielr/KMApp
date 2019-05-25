@@ -60,12 +60,12 @@ export class FormComponent {
     const req = this.http.put(`${API_URL}/update_points/${usuario}/5`, {})
     .subscribe(
       res => {
-        console.log(res);
+        console.log(res)
         window.open('/home', '_self', '', false);
       }
     );
   }
-
+  
   setName(nombre: string){
     this.responsable = nombre;
   }

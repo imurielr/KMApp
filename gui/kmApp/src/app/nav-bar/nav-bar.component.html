@@ -32,9 +32,9 @@
             class="rounded-circle align-self-center mr-2"></fa-icon>
           </a>
           <div ngbDropdownMenu aria-labelledby="userMenu">
-            <h5 class="dropdown-item-text mb-0">{{authService.user.displayName}}</h5>
-            <p class="dropdown-item-text text-muted mb-0">{{authService.user.email}}</p>
-            <p class="dropdown-item-text text-muted mb-1">Nivel: {{ charge }}</p>
+            <h5 class="dropdown-item-text mb-0">{{authService?.user?.displayName}}</h5>
+            <p class="dropdown-item-text text-muted mb-0">{{authService?.user?.email}}</p>
+            <p class="dropdown-item-text text-muted mb-1">Nivel: {{ authService?.user?.tipo }}</p>
             <div class="dropdown-divider"></div>
             <!-- <a class="dropdown-item" href="javascript:undefined" role="button" (click)="signOut()">Sign Out</a> -->
             <a class="dropdown-item" routerLink="/home" role="button" (click)="signOut()">Sign Out</a>
