@@ -25,13 +25,13 @@
 }
 
 .btn{
-  background-color: rgb(166, 250, 225);
-  border-color: rgb(166, 250, 225);
-  color: black;
+  background-color: rgb(23, 69, 136);
+  border-color: rgb(23, 69, 136);
+  color: white;
   padding: 1px;
 }
 
 .btn:hover{
-  background-color: rgb(44, 184, 142);
-  border-color: rgb(44, 184, 142);
+  background-color: rgb(69, 117, 189);
+  border-color: rgb(69, 117, 189);
 }
