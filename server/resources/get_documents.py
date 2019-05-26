@@ -16,7 +16,8 @@ class GetDocuments(Resource):
 
     def get(self):
 
-        documents = list(collection.find({}))
+        query = {"verificado": False}
+        documents = list(collection.find(query))
         if len(documents) > 0:
             documents = json.dumps(documents, default=json_util.default)
             result = json.loads(documents)

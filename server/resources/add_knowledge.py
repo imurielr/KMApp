@@ -29,7 +29,8 @@ class AddKnowledge(Resource):
                     "especialidad": args["especialidad"],
                     "area": args["area"],
                     "fecha_publicacion": datetime.datetime.utcnow(),
-                    "ultima_modificacion": datetime.datetime.utcnow()
+                    "ultima_modificacion": datetime.datetime.utcnow(),
+                    "verificado": False
                 }
 
         # Add the knowledge object to the database using the dictionary
