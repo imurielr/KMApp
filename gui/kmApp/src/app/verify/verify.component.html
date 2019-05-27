@@ -1,18 +1,41 @@
 <html>
   <body>
-    <table id="verify">
-      <tr style="background-color: rgb(23, 69, 136); color: white">
-        <th></th>
-        <th>Objeto de conocimiento</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let doc of docs; index as i">
-        <td>{{i+1}}</td>
-        <td>{{doc}}</td>
-        <td><button class="btn" routerLink="/home" style="display: block; margin: 0 auto;">Verificar</button></td>
-      
-      </tr>
-    </table>
+    <div>
+      <div *ngIf="show" class="float-md-right split right">
+          <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{document[0]}}</mat-card-title>
+                <mat-card-subtitle>Responsable: {{document[1]}}</mat-card-subtitle>
+                <mat-card-subtitle>Especialidad: {{document[2]}}</mat-card-subtitle>
+                <mat-card-subtitle>Area: {{document[3]}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-button style="margin-left: 5%;" (click)="show=false;"><i class="far fa-times" style="color: red;"></i></button>
+                <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><i class="far fa-check" style="color: green;"></i></button>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+        <div id="scrolltable">
+            <table class="table-fixed split left" width="500" id="verify">
+                <thead>
+                  <tr style="background-color: rgb(23, 69, 136); color: white">
+                    <th></th>
+                    <th>Objeto de conocimiento</th>
+                    <th>Autor</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let doc of docs; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{doc[0]}}</td>
+                    <td>{{doc[1]}}</td>
+                    <td><button class="btn" (click)="show=true; document=[doc[0], doc[1], doc[2], doc[3]]" style="display: block; margin: 0 auto;">Verificar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
     <br>
     <button class="btn" id="atras" routerLink="/home">Atras</button>
   </body>

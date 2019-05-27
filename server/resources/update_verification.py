@@ -14,22 +14,10 @@ class UpdateStatus(Resource):
 
     def put(self, responsable, documento):
 
+        # Get document that belong to the user and match the title given
         query = {
                     "responsable": responsable, 
                     "titulo": documento
                 }
-        collection.update(query, { "$set":{"verificado": True}})
+        collection.update(query, { "$set":{"verificado": True}})  # Change the verification field to True
         return "Verificacion exitosa"
-        # result = list(collection.find(query))
-        # # result = json.dumps(result, default=json_util.default)
-        # # document = json.loads(result)
-        # # return document[0]["verificado"]
-        # if len(result) > 0:   # If the user exists add 'num_points' to the existing ones
-        #     result = json.dumps(result, default=json_util.default)
-        #     document = json.loads(result)
-        #     verification = {"verificado": document[0]["verificado"]}
-        #     update = {"$set": {"verificado": True}}
-        #     collection.update_one(verification, update)
-        #     return "Verificacion exitosa"
-        # else:
-        #     return "Error: no se encuentra el documento"

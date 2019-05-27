@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
+
 import { API_URL } from '../env';
 
 import { AuthService } from '../auth.service';
@@ -12,7 +14,7 @@ import { AuthService } from '../auth.service';
 })
 export class FormComponent {
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, public snackbar: MatSnackBar) { }
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
 
@@ -61,13 +63,23 @@ export class FormComponent {
     .subscribe(
       res => {
         console.log(res)
+        alert("Felicidades, has ganado 5 puntos!");
         window.open('/home', '_self', '', false);
+        // this.openSnackBar();
       }
     );
   }
   
   setName(nombre: string){
     this.responsable = nombre;
+  }
+
+  openSnackBar(){
+    console.log("HI");
+    const snackbarRef = this.snackbar.open('HEllooo', '', {
+      horizontalPosition: 'end'
+    });
+     
   }
 
 }

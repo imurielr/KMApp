@@ -10,7 +10,6 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { HttpClient } from '@angular/common/http';
 
 import { API_URL } from './env';
-import { faHardHat } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'

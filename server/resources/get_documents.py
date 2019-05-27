@@ -17,13 +17,13 @@ class GetDocuments(Resource):
     def get(self):
 
         query = {"verificado": False}
-        documents = list(collection.find(query))
+        documents = list(collection.find(query, {"_id": 0}))
         if len(documents) > 0:
             documents = json.dumps(documents, default=json_util.default)
             result = json.loads(documents)
             documents = []
             for i in range(0, len(result)):
-                documents.append(result[i]['titulo'])
+                documents.append((result[i]['titulo'], result[i]['responsable'], result[i]['especialidad'], result[i]['area'], result[i]['area']))
             return documents
         else:
             return "No hay documentos"

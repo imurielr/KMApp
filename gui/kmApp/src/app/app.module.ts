@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +43,9 @@ library.add(faUserCircle);
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSnackBarModule,
     // AmplifyAngularModule,
     FontAwesomeModule,
     MsalModule.forRoot({

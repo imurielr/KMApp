@@ -1,8 +1,6 @@
 #verify {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 50%;
-    /* margin: 0 auto; */
   }
   
 #verify td, #verify th {
@@ -34,4 +32,20 @@
 .btn:hover{
   background-color: rgb(69, 117, 189);
   border-color: rgb(69, 117, 189);
+}
+
+mat-card {
+  /* max-width: 400px; */
+  /* margin-right: 400px; */
+  background-color: #ddd;
+  width: 100%;
+}
+
+mat-card-title{
+  font-weight: 800;
+}
+
+#scrolltable {
+   height: 500px; 
+   overflow: auto; 
 }
