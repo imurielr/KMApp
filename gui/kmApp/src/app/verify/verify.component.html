@@ -7,7 +7,10 @@
                 <mat-card-title>{{document[0]}}</mat-card-title>
                 <mat-card-subtitle>Responsable: {{document[1]}}</mat-card-subtitle>
                 <mat-card-subtitle>Especialidad: {{document[2]}}</mat-card-subtitle>
-                <mat-card-subtitle>Area: {{document[3]}}</mat-card-subtitle>
+                <mat-card-subtitle>Área: {{document[3]}}</mat-card-subtitle>
+                <mat-card-subtitle>Días de validez:  
+                  <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
+                </mat-card-subtitle>
             </mat-card-header>
             <mat-card-actions>
                 <button mat-button style="margin-left: 5%;" (click)="show=false;"><i class="far fa-times" style="color: red;"></i></button>

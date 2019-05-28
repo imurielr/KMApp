@@ -5,7 +5,7 @@ from flask_restful import Resource
 
 from resources.connect_to_DB import client, db
 
-import datetime
+from datetime import datetime, timedelta
 
 import json
 from bson import json_util
@@ -16,25 +16,24 @@ class GetOutdated(Resource):
     """ Class to get the outdated documents that belong to the user """
 
     def get(self, user):
-        """ Get outdated documents """
-
-        day_limit_to_update = 5  # Number of days before showing notification
-
-        date = datetime.datetime.now() - datetime.timedelta(day_limit_to_update)
+        """ Returns the documents that will expire in 5 or less days """
 
         query = {
             'responsable': user,
-            'ultima_modificacion': {'$lt': date} 
+            'verificado': True
         }
-        documents = list(collection.find(query))
+        documents = list(collection.find(query, {'_id':0}))
         if len(documents) > 0:
-            documents = json.dumps(documents, default=json_util.default)
+            documents = json.dumps(documents, default=GetOutdated.myconverter)
             result = json.loads(documents)
             documents = []
             for i in range(0, len(result)):
-                documents.append(result[i]['titulo'])
+                if datetime.strptime(result[i]['ultima_modificacion'], '%Y-%m-%d') < (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
+                    documents.append(result[i]['titulo'])
             return documents
         else:
             return "No hay documentos desactualizados"
 
-
+    def myconverter(o):
+        if isinstance(o, datetime):
+            return o.__str__()[0:10]   # Return date as string following the sintax YYYY-MM-DD

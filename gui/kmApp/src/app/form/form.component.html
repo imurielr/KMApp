@@ -4,7 +4,7 @@
   <form>
     <br>
     <div class="form-group">
-      <label for="titulo">Titulo</label>
+      <label for="titulo">Título</label>
       <input type="text" class="form-control" id="titulo" required>
     </div>
     <!-- <div class="form-group">
@@ -24,6 +24,20 @@
   </form>
   <div style="text-align: center">
       <button class="btn btn-success" routerLink="/home">Atras</button>
-      <button style="margin-left: 5px" class="btn btn-success" (click)="onSubmit()">Añadir</button>
+      <button style="margin-left: 5px" class="btn btn-success" (click)="openModal(template)">Añadir</button>
   </div>
+  <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
+ 
+  <ng-template #template class="template">
+  <!-- <ng-template *ngIf="show"> -->
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{tituloMensaje}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal();">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      {{mensaje}}
+    </div>
+  </ng-template>
 </div>

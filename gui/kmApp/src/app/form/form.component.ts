@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material';
 
 import { API_URL } from '../env';
 
 import { AuthService } from '../auth.service';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,13 @@ import { AuthService } from '../auth.service';
 })
 export class FormComponent {
 
-  constructor(private http: HttpClient, private authService: AuthService, public snackbar: MatSnackBar) { }
+  constructor(private http: HttpClient, private authService: AuthService, private modalService: BsModalService) { }
+
+  modalRef: BsModalRef;
+
+  public tituloMensaje: string;
+  public mensaje: string;
+  public show = false;
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
 
@@ -28,7 +35,7 @@ export class FormComponent {
   async onSubmit(){
     this.titulo = ((document.getElementById('titulo') as HTMLInputElement).value);
     // this.responsable = ((document.getElementById('responsable') as HTMLInputElement).value);
-    await this.authService.getUser().then(res => { this.setName(res['displayName']) });
+    await this.authService.getUser().then(res => { this.responsable = res['displayName'] }); //this.setName(res['displayName']) });
     this.especialidad = ((document.getElementById('especialidad') as HTMLInputElement).value);
     this.area = ((document.getElementById('area') as HTMLInputElement).value);
     this.postEntry(this.titulo, this.responsable, this.especialidad, this.area);
@@ -37,6 +44,8 @@ export class FormComponent {
   postEntry(titulo: string, responsable: string, especialidad: string, area: string){
     if(titulo === '' || responsable === '' || area === ''){
       console.log("ERROR")
+      this.tituloMensaje = "ERROR";
+      this.mensaje = "Ingrese todos los datos obligatorios.";
     }
     else{
       const req = this.http.post(`${API_URL}/docs`, {
@@ -52,6 +61,8 @@ export class FormComponent {
           }
           else{
             console.log("error");
+            this.tituloMensaje = "ERROR";
+            this.mensaje = "Ocurrió un error al ingresar el objeto de conocimiento, es probable que ya exista un documento con este título a su nombre.";
           }
         }
       );
@@ -63,9 +74,8 @@ export class FormComponent {
     .subscribe(
       res => {
         console.log(res)
-        alert("Felicidades, has ganado 5 puntos!");
-        window.open('/home', '_self', '', false);
-        // this.openSnackBar();
+        this.tituloMensaje = "Felicidades"
+        this.mensaje = "Has ganado 5 puntos por ingresar un nuevo objeto de conocimiento. Sigue así!"
       }
     );
   }
@@ -74,12 +84,18 @@ export class FormComponent {
     this.responsable = nombre;
   }
 
-  openSnackBar(){
-    console.log("HI");
-    const snackbarRef = this.snackbar.open('HEllooo', '', {
-      horizontalPosition: 'end'
-    });
-     
+  async openModal(template: TemplateRef<any>) {
+    await this.onSubmit();
+    this.modalRef = this.modalService.show(template);
   }
 
+  closeModal(){
+    if(this.tituloMensaje === "ERROR"){
+      this.modalRef.hide();
+    }
+    else{
+      this.modalRef.hide();
+      window.open('/home', '_self', '', false);
+    }
+  }
 }

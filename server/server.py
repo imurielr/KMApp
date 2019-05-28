@@ -31,7 +31,7 @@ api.add_resource(UpdatePoints, "/update_points/<string:user_id>/<string:num_poin
 api.add_resource(GetOutdated, "/outdated/<string:user>")
 api.add_resource(GetCharge, "/tipo/<string:user_id>")
 api.add_resource(GetDocuments, "/get_docs")
-api.add_resource(UpdateStatus, "/update_status/<string:responsable>/<string:documento>")
+api.add_resource(UpdateStatus, "/update_status/<string:responsable>/<string:documento>/<string:validez>")
 
 
 

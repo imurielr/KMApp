@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +27,9 @@ import { OAuthSettings } from '../oauth';
 import { FormComponent } from './form/form.component';
 import { Top10Component } from './top10/top10.component';
 import { VerifyComponent } from './verify/verify.component';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 library.add(faExternalLinkAlt);
 library.add(faUserCircle);
@@ -46,14 +52,19 @@ library.add(faUserCircle);
     BrowserAnimationsModule,
     MatCardModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     // AmplifyAngularModule,
     FontAwesomeModule,
     MsalModule.forRoot({
       clientID: OAuthSettings.appId
-    })
+    }),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   // providers: [AmplifyService],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
