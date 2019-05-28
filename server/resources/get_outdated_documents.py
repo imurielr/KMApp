@@ -28,7 +28,8 @@ class GetOutdated(Resource):
             result = json.loads(documents)
             documents = []
             for i in range(0, len(result)):
-                if datetime.strptime(result[i]['ultima_modificacion'], '%Y-%m-%d') < (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
+                # if datetime.strptime(result[i]['ultima_modificacion'], '%Y-%m-%d') < (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
+                if datetime.today() >= (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
                     documents.append(result[i]['titulo'])
             return documents
         else:

@@ -19,7 +19,7 @@
             <div ngbDropdownMenu aria-labelledby="notificaciones">
                 <p class="dropdown-item" *ngIf="!showNotif">Documentos actualizados</p>
                 <li *ngFor="let doc of documents">
-                    <p class="dropdown-item">{{ doc }} no se ha actualizado en los últimos 5 días</p>
+                    <p class="dropdown-item">El objeto "{{ doc }}" será eliminado en los próximos días</p>
                     <div class="dropdown-divider"></div>
                 </li>
             </div>
