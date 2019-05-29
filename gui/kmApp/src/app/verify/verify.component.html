@@ -13,8 +13,10 @@
                 </mat-card-subtitle>
             </mat-card-header>
             <mat-card-actions>
-                <button mat-button style="margin-left: 5%;" (click)="show=false;"><i class="far fa-times" style="color: red;"></i></button>
-                <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><i class="far fa-check" style="color: green;"></i></button>
+                <!-- <button mat-button style="margin-left: 5%;" (click)="show=false;"><i class="far fa-times" style="color: red;"></i></button> -->
+                <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
+                <!-- <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><i class="far fa-check" style="color: green;"></i></button> -->
+                <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
               </mat-card-actions>
           </mat-card>
       </div>

@@ -14,7 +14,7 @@
         <li *ngIf="authService.authenticated" ngbDropdown placement="bottom-right" class="nav-item">
             <a ngbDropdownToggle id="notificaciones" class="nav-link" href="javascript:undefined" role="button" aria-haspopup="true" aria-expanded="false">
               Notificaciones
-              <i *ngIf="showNotif" style="color: rgb(204, 4, 4)" class="far fa-exclamation-circle"></i>
+            <mdb-icon *ngIf="showNotif" fas icon="exclamation" fixedWidth="true" size="md" style="color: rgb(204, 4, 4)"></mdb-icon>
             </a>
             <div ngbDropdownMenu aria-labelledby="notificaciones">
                 <p class="dropdown-item" *ngIf="!showNotif">Documentos actualizados</p>
@@ -28,8 +28,7 @@
         <li *ngIf="authService.authenticated" ngbDropdown placement="bottom-right" class="nav-item">
           <a ngbDropdownToggle id="userMenu" class="nav-link" href="javascript:undefined" role="button" aria-haspopup="true"
             aria-expanded="false">
-            <fa-icon [icon]="[ 'far', 'user-circle' ]" fixedWidth="true" size="lg"
-            class="rounded-circle align-self-center mr-2"></fa-icon>
+            <mdb-icon far icon="user-circle" fixedWidth="true" size="lg"></mdb-icon>
           </a>
           <div ngbDropdownMenu aria-labelledby="userMenu">
             <h5 class="dropdown-item-text mb-0">{{authService?.user?.displayName}}</h5>

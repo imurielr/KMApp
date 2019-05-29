@@ -30,6 +30,7 @@ import { VerifyComponent } from './verify/verify.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 library.add(faExternalLinkAlt);
 library.add(faUserCircle);
@@ -61,7 +62,8 @@ library.add(faUserCircle);
     }),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   // providers: [AmplifyService],
   providers: [MatDatepickerModule],
