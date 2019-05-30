@@ -26,10 +26,8 @@
       <button class="btn btn-success" routerLink="/home">Atras</button>
       <button style="margin-left: 5px" class="btn btn-success" (click)="openModal(template)">Añadir</button>
   </div>
-  <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
  
   <ng-template #template class="template">
-  <!-- <ng-template *ngIf="show"> -->
     <div class="modal-header">
       <h4 class="modal-title pull-left">{{tituloMensaje}}</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal();">

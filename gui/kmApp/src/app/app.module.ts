@@ -31,6 +31,7 @@ import { VerifyComponent } from './verify/verify.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RecompensasComponent } from './recompensas/recompensas.component';
 
 library.add(faExternalLinkAlt);
 library.add(faUserCircle);
@@ -43,7 +44,8 @@ library.add(faUserCircle);
     AlertsComponent,
     FormComponent,
     Top10Component,
-    VerifyComponent
+    VerifyComponent,
+    RecompensasComponent
   ],
   imports: [
     BrowserModule,

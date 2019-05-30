@@ -1,0 +1,30 @@
+#recompensas {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    align-content: center;
+}
+  
+#recompensas td, #recompensas th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#recompensas tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#recompensas tr:hover {
+  background-color: #ddd;
+}
+
+.btn{
+  background-color: rgb(23, 69, 136);
+  border-color: rgb(23, 69, 136);
+  color: white;
+}
+
+#scrolltable {
+    height: 500px; 
+    overflow: auto; 
+ }

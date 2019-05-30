@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { Top10Component } from './top10/top10.component';
-import { VerifyComponent } from './verify/verify.component'
+import { VerifyComponent } from './verify/verify.component';
+import { RecompensasComponent } from './recompensas/recompensas.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'verify',
     component: VerifyComponent
+  },
+  {
+    path: 'recompensas',
+    component: RecompensasComponent
   }
 ];
 

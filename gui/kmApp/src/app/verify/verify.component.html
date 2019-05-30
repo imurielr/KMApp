@@ -8,15 +8,13 @@
                 <mat-card-subtitle>Responsable: {{document[1]}}</mat-card-subtitle>
                 <mat-card-subtitle>Especialidad: {{document[2]}}</mat-card-subtitle>
                 <mat-card-subtitle>Área: {{document[3]}}</mat-card-subtitle>
-                <mat-card-subtitle>Días de validez:  
+                <mat-card-subtitle>Fecha límite de validez:  
                   <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
                 </mat-card-subtitle>
             </mat-card-header>
             <mat-card-actions>
-                <!-- <button mat-button style="margin-left: 5%;" (click)="show=false;"><i class="far fa-times" style="color: red;"></i></button> -->
                 <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
-                <!-- <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><i class="far fa-check" style="color: green;"></i></button> -->
-                <button mat-button style="margin-left: 5%;" (click)="verify(document[0], document[1])"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
+                <button mat-button style="margin-left: 5%;" (click)="openModal(template, document[0], document[1]);"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
               </mat-card-actions>
           </mat-card>
       </div>
@@ -43,5 +41,17 @@
     </div>
     <br>
     <button class="btn" id="atras" routerLink="/home">Atras</button>
+
+    <ng-template #template class="template">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{tituloMensaje}}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{mensaje}}
+        </div>
+    </ng-template>
   </body>
 </html>
