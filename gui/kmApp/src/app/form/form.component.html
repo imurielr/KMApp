@@ -1,30 +1,72 @@
 <div class="container">
-  <br><br><br><br>
-  <h3>Objeto de Conocimiento</h3>
-  <form>
-    <br>
-    <div class="form-group">
-      <label for="titulo">Título</label>
-      <input type="text" class="form-control" id="titulo" required>
+  <br>
+  <h3 style="text-align: center">Objeto de Conocimiento</h3>
+  <div id="scrolltable">
+    <form >
+      <br>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="tema">Tema</label>
+        <input type="text" class="form-control" id="tema" required>
+      </div>
+      <div class="form-group">
+          <label for="autor">Responsable</label>
+          <input type="text" readonly class="form-control" id="autor" value="{{authService?.user?.displayName}}" required>
+      </div>
+      <div class="form-group">
+        <label for="especialidad">Especialidad</label>
+        <select class="form-control" id="especialidad" required>
+          <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="area">Área</label>
+          <input type="text" class="form-control" id="area" required> 
+      </div>
+      <div class="form-group">
+          <label for="datos">Datos generales</label>
+          <textarea class="form-control" id="datos" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="realizado">¿Qué se hizo?</label>
+          <textarea class="form-control" id="realizado" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="diferencia">¿En qué se diferencia de lo que se ha hecho anteriormente?</label>
+          <textarea class="form-control" id="diferencia" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="porque">¿Por qué se hizo?</label>
+          <textarea class="form-control" id="porque" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="resultados">¿Cuáles fueron los resultados?</label>
+          <textarea class="form-control" id="resultados" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="repetible">¿Es probable que se repita el evento?</label>
+          <br>
+          <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="esRepetible" name="esRepetible" (click)="show=true" class="custom-control-input">
+              <label class="custom-control-label" for="esRepetible">Si</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="esRepetible2" name="esRepetible" (click)="show=false; document.getElementbyId('esRepetible2').checked;" class="custom-control-input">
+              <label class="custom-control-label" for="esRepetible2">No</label>
+            </div>
+      </div>
+      <div *ngIf="show" class="form-group">
+          <label for="repeticion">¿Qué tan seguido crees que se puede repetir?</label>
+          <textarea class="form-control" id="repeticion" required></textarea>
+      </div>
+    </form>
+    <div style="text-align: center">
+        <button class="btn btn-success" routerLink="/home">Atras</button>
+        <button style="margin-left: 5px" class="btn btn-success" (click)="openModal(template)">Añadir</button>
     </div>
-    <!-- <div class="form-group">
-        <label for="responsable">Responsable</label>
-        <input type="text" class="form-control" id="responsable" required>
-      </div> -->
-    <div class="form-group">
-      <label for="especialidad">Especialidad</label>
-      <select class="form-control" id="especialidad" required>
-        <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="area">Área</label>
-      <input type="text" class="form-control" id="area" required> 
-    </div>
-  </form>
-  <div style="text-align: center">
-      <button class="btn btn-success" routerLink="/home">Atras</button>
-      <button style="margin-left: 5px" class="btn btn-success" (click)="openModal(template)">Añadir</button>
   </div>
  
   <ng-template #template class="template">

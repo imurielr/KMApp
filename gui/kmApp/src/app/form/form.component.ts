@@ -25,34 +25,68 @@ export class FormComponent {
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
 
-  titulo: string;
+  nombre: string;
+  tema: string;
   responsable: string;
   especialidad: string;
   area: string;
+  datos: string;
+  realizado: string;
+  diferencia: string;
+  porque: string;
+  resultados: string;
+  repetible: boolean;
+  repeticion: string;
   
   submitted = false;
 
   async onSubmit(){
-    this.titulo = ((document.getElementById('titulo') as HTMLInputElement).value);
-    // this.responsable = ((document.getElementById('responsable') as HTMLInputElement).value);
-    await this.authService.getUser().then(res => { this.responsable = res['displayName'] }); //this.setName(res['displayName']) });
+    this.nombre = ((document.getElementById('nombre') as HTMLInputElement).value);
+    this.tema = ((document.getElementById('tema') as HTMLInputElement).value);
+
+    // await this.authService.getUser().then(res => { this.responsable = res['displayName'] }); //this.setName(res['displayName']) });
+
+    this.responsable = this.authService.user.displayName
     this.especialidad = ((document.getElementById('especialidad') as HTMLInputElement).value);
     this.area = ((document.getElementById('area') as HTMLInputElement).value);
-    this.postEntry(this.titulo, this.responsable, this.especialidad, this.area);
+    this.datos = ((document.getElementById('datos') as HTMLInputElement).value);
+    this.realizado = ((document.getElementById('realizado') as HTMLInputElement).value);
+    this.diferencia = ((document.getElementById('diferencia') as HTMLInputElement).value);
+    this.porque = ((document.getElementById('porque') as HTMLInputElement).value);
+    this.resultados = ((document.getElementById('resultados') as HTMLInputElement).value);
+
+    if((document.getElementById('esRepetible') as HTMLInputElement).checked){
+      this.repetible = true;
+      this.repeticion = ((document.getElementById('repeticion') as HTMLInputElement).value);
+    }
+    else if((document.getElementById('esRepetible2') as HTMLInputElement).checked){
+      this.repetible = false;
+      this.repeticion = '';
+    }
+    
+    this.postEntry(this.nombre, this.tema, this.responsable, this.especialidad, this.area, this.datos, this.realizado, this.diferencia, this.porque, this.resultados, this.repetible, this.repeticion);
   }
 
-  postEntry(titulo: string, responsable: string, especialidad: string, area: string){
-    if(titulo === '' || responsable === '' || area === ''){
+  postEntry(nombre: string, tema: string, responsable: string, especialidad: string, area: string, datos: string, realizado: string, diferencia: string, porque: string, resultados: string, repetible: boolean, repeticion: string){
+    if(nombre === '' || tema === '' || responsable === '' || area === '' || datos === '' || realizado === '' || diferencia === '' || porque === '' || resultados === ''){
       console.log("ERROR")
       this.tituloMensaje = "ERROR";
       this.mensaje = "Ingrese todos los datos obligatorios.";
     }
     else{
       const req = this.http.post(`${API_URL}/docs`, {
-        titulo: titulo,
+        nombre: nombre,
+        tema: tema,
         responsable: responsable,
         especialidad: especialidad,
-        area: area
+        area: area,
+        datos: datos,
+        realizado: realizado,
+        diferencia: diferencia,
+        porque: porque,
+        resultados: resultados,
+        repetible: repetible,
+        repeticion: repeticion,
       })
       .subscribe(
         res => {

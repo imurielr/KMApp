@@ -20,7 +20,7 @@ class UpdateStatus(Resource):
         # Get document that belong to the user and match the title given
         query = {
                     "responsable": responsable, 
-                    "titulo": documento
+                    "nombre": documento
                 }
         collection.update(query, { "$set":{"verificado": True, "validez": datetime.strptime(validez, '%b %d %Y')}})  # Change the verification field to True
         return "Verificacion exitosa"

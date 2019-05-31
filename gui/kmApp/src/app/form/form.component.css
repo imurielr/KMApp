@@ -7,10 +7,15 @@
 }
 
 .container{
-    width: 500px;
+    width: 600px;
 }
 
 .btn{
     background-color: rgb(23, 69, 136);
     border-color: rgb(23, 69, 136);
 }
+
+#scrolltable {
+    height: 550px; 
+    overflow: auto; 
+ }

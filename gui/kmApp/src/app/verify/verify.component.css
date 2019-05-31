@@ -26,7 +26,7 @@
   background-color: rgb(23, 69, 136);
   border-color: rgb(23, 69, 136);
   color: white;
-  padding: 1px;
+  /* padding: 1px; */
 }
 
 .btn:hover{

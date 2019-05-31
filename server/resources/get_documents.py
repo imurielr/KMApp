@@ -23,7 +23,7 @@ class GetDocuments(Resource):
             result = json.loads(documents)
             documents = []
             for i in range(0, len(result)):
-                documents.append((result[i]['titulo'], result[i]['responsable'], result[i]['especialidad'], result[i]['area'], result[i]['area']))
+                documents.append((result[i]['nombre'], result[i]['responsable'], result[i]['especialidad'], result[i]['area'], result[i]['datos'], result[i]['realizado'], result[i]['diferencia'], result[i]['porque'], result[i]['resultados'], result[i]['repeticion']))
             return documents
         else:
             return "No hay documentos"

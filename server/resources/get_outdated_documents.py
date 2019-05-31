@@ -30,7 +30,7 @@ class GetOutdated(Resource):
             for i in range(0, len(result)):
                 # if datetime.strptime(result[i]['ultima_modificacion'], '%Y-%m-%d') < (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
                 if datetime.today() >= (datetime.strptime(result[i]['validez'], '%Y-%m-%d') - timedelta(5)):
-                    documents.append(result[i]['titulo'])
+                    documents.append(result[i]['nombre'])
             return documents
         else:
             return "No hay documentos desactualizados"

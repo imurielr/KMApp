@@ -11,7 +11,7 @@
    
     <div class="collapse navbar-collapse" [class.show]="showNav" id="navbarCollapse">
       <ul class="navbar-nav mr-auto"></ul>
-      <button routerLink="/recompensas">
+      <button *ngIf="authService.authenticated" routerLink="/recompensas">
           <h6>
           <mdb-icon fas icon="star"  size="2x" style="color: rgb(248, 210, 71);"></mdb-icon>
           {{ authService?.user?.puntos }}</h6>
