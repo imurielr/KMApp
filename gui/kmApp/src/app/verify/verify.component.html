@@ -5,19 +5,19 @@
           <mat-card>
             <mat-card-header>
                 <mat-card-title>{{document[0]}}</mat-card-title>
-                <mat-card-subtitle>Responsable: {{document[1]}}</mat-card-subtitle>
-                <mat-card-subtitle>Especialidad: {{document[2]}}</mat-card-subtitle>
-                <mat-card-subtitle>Área: {{document[3]}}</mat-card-subtitle>
-                <mat-card-subtitle>Datos generales: {{document[4]}}</mat-card-subtitle>
-                <mat-card-subtitle>¿Qué se hizo?: {{document[5]}}</mat-card-subtitle>
-                <mat-card-subtitle>Diferencias: {{document[6]}}</mat-card-subtitle>
-                <mat-card-subtitle>¿Por qué se hizo?: {{document[7]}}</mat-card-subtitle>
-                <mat-card-subtitle>Resultados: {{document[8]}}</mat-card-subtitle>
-                <mat-card-subtitle *ngIf="document[9]!=''">¿Se repite?: {{document[9]}}</mat-card-subtitle>
-                <mat-card-subtitle>Fecha límite de validez:  
+                <mat-card-subtitle><b>Responsable:</b> {{document[1]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Especialidad:</b> {{document[2]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Área:</b> {{document[3]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Datos generales:</b> {{document[4]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>¿Qué se hizo?:</b> {{document[5]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Diferencias:</b> {{document[6]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>¿Por qué se hizo?:</b> {{document[7]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Resultados:</b> {{document[8]}}</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="document[9]!=''"><b>¿Se repite?:</b> {{document[9]}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Fecha límite de validez:</b>  
                   <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
                 </mat-card-subtitle>
-            </mat-card-header>
+              </mat-card-header>
             <mat-card-actions>
                 <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
                 <button mat-button style="margin-left: 5%;" (click)="openModal(template, document[0], document[1]);"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <br>
-    <button class="btn" id="atras" routerLink="/home">Atras</button>
+    <button class="btn" id="atras" routerLink="/home">Atrás</button>
 
     <ng-template #template class="template">
         <div class="modal-header">
