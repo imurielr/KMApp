@@ -6,6 +6,7 @@ import { FormComponent } from './form/form.component';
 import { Top10Component } from './top10/top10.component';
 import { VerifyComponent } from './verify/verify.component';
 import { RecompensasComponent } from './recompensas/recompensas.component';
+import { FindComponent } from './find/find.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'recompensas',
     component: RecompensasComponent
+  },
+  {
+    path: 'find',
+    component: FindComponent
   }
 ];
 

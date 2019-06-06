@@ -1,0 +1,79 @@
+div.wrapper {
+    width: 800px;
+    margin: 80px auto;
+  }
+   
+  
+   
+  a.simple {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 1.3rem;
+    font-family: 'Helvetica';
+    font-weight: 300;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+  }
+   
+  input {
+    border: none;
+    border-bottom: 2px solid #000099;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Helvetica';
+    font-weight: 300;
+    margin-right: 100px;
+    width: 450px;
+  }
+   
+  input:focus {
+    border-bottom: 2px solid #f7c639;
+  }
+   
+  div.library-box {
+    font-family: 'Lato';
+    color: white;
+    background: purple;
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 2em;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 20px;
+  }
+   
+  div.library-box:hover {
+    background: black;
+    cursor: pointer;
+  }
+
+  .buscar {
+	background-color:#113c85;
+	-moz-border-radius:19px;
+	-webkit-border-radius:19px;
+	border-radius:19px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+    padding:10px 25px;
+    margin-top: 30px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #283966;
+}
+.buscar:hover {
+	background-color:#476e9e;
+}
+.buscar:active {
+	position:relative;
+	top:1px;
+}
+
