@@ -1,18 +1,14 @@
-<html>
-  <body>
-    <table id="top">
-      <tr style="background-color: rgb(23, 69, 136); color: white">
-        <th></th>
-        <th>Usuario</th>
-        <th>Puntos acumulados</th>
-      </tr>
-      <tr *ngFor="let user of top; index as i">
-        <td>{{i+1}}</td>
-        <td>{{ user.usuario }}</td>
-        <td>{{ user.puntos }}</td>
-      </tr>
-    </table>
-    <br>
-    <button class="btn" routerLink="/home">Atrás</button>
-  </body>
-</html>
+<table id="top">
+  <tr style="background-color: rgb(23, 69, 136); color: white">
+    <th></th>
+    <th>Usuario</th>
+    <th>Puntos acumulados</th>
+  </tr>
+  <tr *ngFor="let user of top; index as i">
+    <td>{{i+1}}</td>
+    <td>{{ user.usuario }}</td>
+    <td>{{ user.puntos }}</td>
+  </tr>
+</table>
+<br>
+<button class="btn" routerLink="/home">Atrás</button>

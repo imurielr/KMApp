@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +61,8 @@ library.add(faUserCircle);
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
+    MatTableModule,
     // AmplifyAngularModule,
     FontAwesomeModule,
     MsalModule.forRoot({

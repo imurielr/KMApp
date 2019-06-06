@@ -2,9 +2,7 @@ div.wrapper {
     width: 800px;
     margin: 80px auto;
   }
-   
-  
-   
+
   a.simple {
     background: white;
     color: black;
@@ -77,3 +75,46 @@ div.wrapper {
 	top:1px;
 }
 
+#documents {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+#documents td, #documents th {
+border: 1px solid #ddd;
+padding: 4px;
+}
+
+#documents td{
+  font-size: 14px;
+}
+
+#documents tr:nth-child(even){
+background-color: #f2f2f2;
+}
+
+#documents tr:hover {
+background-color: #ddd;
+}
+
+#scrolltable {
+  height: 470px; 
+  overflow: auto; 
+}
+
+.btn{
+  background-color: rgb(23, 69, 136);
+  border-color: rgb(23, 69, 136);
+  color: white;
+}
+
+.btn:hover{
+  background-color: rgb(69, 117, 189);
+  border-color: rgb(69, 117, 189);
+}
+
+.btn#atras{
+  background-color: rgb(23, 69, 136);
+  border-color: rgb(23, 69, 136);
+  color: white;
+}

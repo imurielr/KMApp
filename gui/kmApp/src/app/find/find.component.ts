@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 //import { FindService } from '../library.service'
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../env';
+
 @Component({
   selector: 'app-find',
   templateUrl: './find.component.html',
@@ -11,8 +16,22 @@ export class FindComponent implements OnInit {
   searchTerm = '';
   libraryName = '';
 
+  public docs;
+  public documentInfo: Array<string>;
+
   //constructor(private findService : FindService) { }
-  constructor() { }
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
+
+  ngOnInit() {
+    this.getDocuments();
+  }
+
+  getDocuments(){
+    this.http.get(`${API_URL}/verified`).subscribe(data => {
+      this.docs = data;
+    })
+  }
+
   updateTerm(event: any): void {
     this.searchTerm = event.target.value;
   }
@@ -21,7 +40,9 @@ export class FindComponent implements OnInit {
     this.libraryName = event.target.value;
   }
 
-  ngOnInit() {
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    });
   }
 
 }

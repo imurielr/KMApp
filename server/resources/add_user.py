@@ -5,6 +5,9 @@ from flask_restful import Resource, reqparse
 
 from resources.connect_to_DB import client, db
 
+import json
+from bson import json_util
+
 import datetime
 
 # Add expected arguments
@@ -30,5 +33,8 @@ class AddUser(Resource):
         try:
             user_id = collection.insert_one(new_user)
             return "Usuario agregado exitosamente"
+            new_user = json.dumps(new_user, default=json_util.default)
+            result = json.loads(new_user)
+            return result
         except:
             return "El usuario ya existe"

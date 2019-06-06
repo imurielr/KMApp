@@ -16,6 +16,10 @@
   background-color: #ddd;
 }
 
+#verify td{
+  font-size: 14px;
+}
+
 .btn#atras{
   background-color: rgb(23, 69, 136);
   border-color: rgb(23, 69, 136);

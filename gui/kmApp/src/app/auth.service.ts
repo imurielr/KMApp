@@ -88,35 +88,16 @@ export class AuthService {
     let user = new User();
     user.displayName = graphUser.displayName;
     // Prefer the mail property, but fall back to userPrincipalName
-    user.email = graphUser.mail || graphUser.userPrincipalName;
-
-    await this.http.get(`${API_URL}/tipo/${user.email}`).subscribe(data => { user.tipo = data.toString()});
-
-    await this.addUser(user.email);    
-  
+    user.email = graphUser.mail
+    
+    const req = this.http.post(`${API_URL}/add_user`, {
+      usuario: user.email
+    }).subscribe(res => {
+                          this.http.get(`${API_URL}/user/${user.email}`).subscribe(res => {
+                                                                                            user.puntos = res["puntos"]
+                                                                                            user.tipo = res["tipo"]
+                          })
+      });
     return user;
-  }
-
-  getPoints(user: string){
-    this.http.get(`${API_URL}/points/${user}`).subscribe(data => {
-      this.setPoints(<Number> data);
-    });
-  }
-
-
-  setPoints(points: Number){
-    this.user.puntos = points;
-  }
-
-  addUser(usuario: string){
-    // ADD NEW USER
-      const req = this.http.post(`${API_URL}/add_user`, {
-        usuario: usuario
-      })
-      .subscribe(
-        res => {
-          this.getPoints(usuario);
-        }
-      );
   }
 }

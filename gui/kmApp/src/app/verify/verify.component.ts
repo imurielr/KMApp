@@ -14,7 +14,6 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class VerifyComponent implements OnInit {
 
   public docs;
-  public documentInfo: Array<string>;
   public show = false;
 
   public tituloMensaje: string;

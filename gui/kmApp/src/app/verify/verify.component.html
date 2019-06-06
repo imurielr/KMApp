@@ -1,63 +1,59 @@
-<html>
-  <body>
-    <div>
-      <div *ngIf="show" class="float-md-right split right" style="max-width: 50%" id="scrolltable">
-          <mat-card>
-            <mat-card-header>
-                <mat-card-title>{{document[0]}}</mat-card-title>
-                <mat-card-subtitle><b>Responsable:</b> {{document[1]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Especialidad:</b> {{document[2]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Área:</b> {{document[3]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Datos generales:</b> {{document[4]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>¿Qué se hizo?:</b> {{document[5]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Diferencias:</b> {{document[6]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>¿Por qué se hizo?:</b> {{document[7]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Resultados:</b> {{document[8]}}</mat-card-subtitle>
-                <mat-card-subtitle *ngIf="document[9]!=''"><b>¿Se repite?:</b> {{document[9]}}</mat-card-subtitle>
-                <mat-card-subtitle><b>Fecha límite de validez:</b>  
-                  <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
-                </mat-card-subtitle>
-              </mat-card-header>
-            <mat-card-actions>
-                <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
-                <button mat-button style="margin-left: 5%;" (click)="openModal(template, document[0], document[1]);"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
-              </mat-card-actions>
-          </mat-card>
-      </div>
-        <div id="scrolltable">
-            <table class="table-fixed split left" width="500" id="verify">
-                <thead>
-                  <tr style="background-color: rgb(23, 69, 136); color: white">
-                    <th></th>
-                    <th>Objeto de conocimiento</th>
-                    <th>Autor</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let doc of docs; index as i">
-                    <td>{{i+1}}</td>
-                    <td>{{doc[0]}}</td>
-                    <td>{{doc[1]}}</td>
-                    <td><button class="btn" (click)="show=true; document=[doc[0], doc[1], doc[2], doc[3], doc[4], doc[5], doc[6], doc[7], doc[8], doc[9]]" style="display: block; margin: 0 auto; padding: 1px;">Verificar</button></td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+<div>
+  <div *ngIf="show" class="float-md-right split right" style="max-width: 50%" id="scrolltable">
+      <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{document[0]}}</mat-card-title>
+            <mat-card-subtitle><b>Responsable:</b> {{document[1]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Especialidad:</b> {{document[2]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Área:</b> {{document[3]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Datos generales:</b> {{document[4]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>¿Qué se hizo?:</b> {{document[5]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Diferencias:</b> {{document[6]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>¿Por qué se hizo?:</b> {{document[7]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Resultados:</b> {{document[8]}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="document[9]!=''"><b>¿Se repite?:</b> {{document[9]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Fecha límite de validez:</b>  
+              <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
+            </mat-card-subtitle>
+          </mat-card-header>
+        <mat-card-actions>
+            <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
+            <button mat-button style="margin-left: 5%;" (click)="openModal(template, document[0], document[1]);"><mdb-icon fas icon="check" fixedWidth="true" size="md" style="color: green;"></mdb-icon></button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+    <div id="scrolltable">
+        <table class="table-fixed split left" width="500" id="verify">
+            <thead>
+              <tr style="background-color: rgb(23, 69, 136); color: white">
+                <th></th>
+                <th>Objeto de conocimiento</th>
+                <th>Autor</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of docs; index as i">
+                <td>{{i+1}}</td>
+                <td>{{doc[0]}}</td>
+                <td>{{doc[1]}}</td>
+                <td><button class="btn" (click)="show=true; document=[doc[0], doc[1], doc[2], doc[3], doc[4], doc[5], doc[6], doc[7], doc[8], doc[9]]" style="display: block; margin: 0 auto; padding: 1px;">Verificar</button></td>
+              </tr>
+            </tbody>
+          </table>
     </div>
-    <br>
-    <button class="btn" id="atras" routerLink="/home">Atrás</button>
+</div>
+<br>
+<button class="btn" id="atras" routerLink="/home">Atrás</button>
 
-    <ng-template #template class="template">
-        <div class="modal-header">
-          <h4 class="modal-title pull-left">{{tituloMensaje}}</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {{mensaje}}
-        </div>
-    </ng-template>
-  </body>
-</html>
+<ng-template #template class="template">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{tituloMensaje}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal();">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      {{mensaje}}
+    </div>
+</ng-template>
