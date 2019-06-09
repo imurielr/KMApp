@@ -12,4 +12,5 @@
     <button routerLink="../find" style="margin-left: 5px">Buscar</button>
     <button *ngIf="(authService?.user?.tipo == 'Director') || (authService?.user?.tipo == 'Experto')" id="verify" routerLink="../verify" style="margin-left: 5px">Verificar conocimiento</button>  
   </ng-template>
+  
 </div>
