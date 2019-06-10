@@ -17,6 +17,7 @@ from resources.get_documents import GetDocuments
 from resources.update_verification import UpdateStatus
 from resources.get_user import GetUser
 from resources.get_verified_documents import GetVerified
+from resources.update_knowledge import UpdatePost
 
 print('Ejecutando servidor')
 # Create the app and define it as a rest api.
@@ -36,6 +37,7 @@ api.add_resource(GetDocuments, "/get_docs")
 api.add_resource(UpdateStatus, "/update_status/<string:responsable>/<string:documento>/<string:validez>")
 api.add_resource(GetUser, "/user/<string:user_id>")
 api.add_resource(GetVerified, "/verified")
+api.add_resource(UpdatePost,"/edit")
 
 
 

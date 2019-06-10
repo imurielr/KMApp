@@ -80,29 +80,29 @@
         <div class="form-group">
           <div class="form-group">
               <label for="datos">Datos generales</label>
-              <textarea class="form-control" id="datos" rows="3" placeholder="{{document[4]}}" required></textarea>
+              <textarea class="form-control" id="datos" rows="3" required>"{{document[4]}}" </textarea>
           </div>
           <div class="form-group">
               <label for="realizado">¿Qué se hizo?</label>
-              <textarea class="form-control" id="realizado" rows="3" placeholder="{{document[5]}}" required></textarea>
+              <textarea class="form-control" id="realizado" rows="3" required>"{{document[5]}}" </textarea>
           </div>
           <div class="form-group">
               <label for="diferencia">¿En qué se diferencia de lo que se ha hecho anteriormente?</label>
-              <textarea class="form-control" id="diferencia" rows="3" placeholder="{{document[6]}}" required></textarea>
+              <textarea class="form-control" id="diferencia" rows="3"  required>"{{document[6]}}"</textarea>
           </div>
           <div class="form-group">
               <label for="porque">¿Por qué se hizo?</label>
-              <textarea class="form-control" id="porque" rows="3" placeholder="{{document[7]}}" required></textarea>
+              <textarea class="form-control" id="porque" rows="3" required>"{{document[7]}}"</textarea>
           </div>
           <div class="form-group">
               <label for="resultados">¿Cuáles fueron los resultados?</label>
-              <textarea class="form-control" id="resultados" rows="3" placeholder="{{document[8]}}"required></textarea>
+              <textarea class="form-control" id="resultados" rows="3" required>"{{document[8]}}"</textarea>
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Guardar</button>
+      <button type="button" class="btn btn-outline-dark" (click)="onSubmit(document[0]); //modal.close(); ">Guardar</button>
     </div>
   </ng-template>
     
