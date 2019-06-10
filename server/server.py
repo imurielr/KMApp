@@ -37,7 +37,7 @@ api.add_resource(GetDocuments, "/get_docs")
 api.add_resource(UpdateStatus, "/update_status/<string:responsable>/<string:documento>/<string:validez>")
 api.add_resource(GetUser, "/user/<string:user_id>")
 api.add_resource(GetVerified, "/verified")
-api.add_resource(UpdatePost,"/edit")
+api.add_resource(UpdatePost,"/edit/<string:documento>/<string:datos>/<string:realizado>/<string:diferencia>/<string:porque>/<string:resultados>")
 
 
 
