@@ -14,11 +14,7 @@ collection = db.objeto_de_conocimiento
 
 class UpdatePost(Resource):
 
-    def put(self, documento, datos, realizado,diferencia, porque, resultados):
-        print("Me llamaron que chimba")
-        query = {
-                    "nombre": documento
-                }
-        collection.update(query, { "$set":{"verificado": False,"validez":None,"datos": datos,"realizado": realizado, "diferencia": diferencia, "porque": porque,"resultados": resultados }}) 
+    def put(self,documento, datos, realizado,diferencia, porque, resultados):
+        collection.update( {"nombre":documento}, { "$set":{"verificado": False,"validez":None,"datos": datos,"realizado": realizado, "diferencia": diferencia, "porque": porque,"resultados": resultados }}) 
         
         return "Edición exitosa"
