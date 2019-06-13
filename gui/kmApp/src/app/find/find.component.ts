@@ -19,11 +19,19 @@ export class FindComponent implements OnInit {
   searchTerm = '';
   libraryName = '';
 
-  public docs;
+  public docs: Object;
+  public results;
   public documentInfo: Array<string>;
   public tituloMensaje: string;
   public mensaje: string;
   public show = false;
+  public showResults =false;
+  public showDetail=false;
+ 
+
+  soluciones = ['Todas','KMAPP','Sucursal Virtual','Nequi','Wikity','Billetera'];
+  areas =['Todas','TI','Desarrollo','Soporte','Investigacion','Prevención de riesgos'];
+  procesos = ['Todos','Desarrollo','Solución de problemas','Despliegue','Front','Back','Bugs'];
 
   //constructor(private findService : FindService) { }
   constructor(private http: HttpClient,private authService: AuthService, private modalService: BsModalService, private modalService2: NgbModal) { }
@@ -36,6 +44,11 @@ export class FindComponent implements OnInit {
   porque: string;
   resultados: string;
 
+  sarea:string;
+  ssolution:string;
+  sproceso:string;
+  snombre:string;
+
   ngOnInit() {
     this.getDocuments();
   }
@@ -46,12 +59,12 @@ export class FindComponent implements OnInit {
     })
   }
 
-
-
   open(content) {
     this.modalService2.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     });
   }
+
+  
 
   async onSubmit(name){
     
@@ -99,4 +112,21 @@ export class FindComponent implements OnInit {
     );
   }
 
-}
+ async fillResults(){
+    this.snombre = ((document.getElementById('nombre') as HTMLInputElement).value);
+    this.ssolution = ((document.getElementById('solucion') as HTMLInputElement).value);
+    this.sarea = ((document.getElementById('area') as HTMLInputElement).value);
+    this.sproceso = ((document.getElementById('proceso') as HTMLInputElement).value);
+    let nombre1 =this.snombre;
+    if(nombre1==''){
+      nombre1='null';
+    }
+    let area1 =this.sarea;
+    let solucion1=this.ssolution;
+    let proceso1 =this.sproceso;
+    this.results=[];
+    await this.http.get(`${API_URL}/search/${nombre1}/${area1}/${solucion1}/${proceso1}`).subscribe(data => {
+      this.results = data;
+    })
+ }
+} 

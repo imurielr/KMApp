@@ -18,6 +18,7 @@ from resources.update_verification import UpdateStatus
 from resources.get_user import GetUser
 from resources.get_verified_documents import GetVerified
 from resources.update_knowledge import UpdatePost
+from resources.get_search import GetSearch
 
 print('Ejecutando servidor')
 # Create the app and define it as a rest api.
@@ -38,7 +39,7 @@ api.add_resource(UpdateStatus, "/update_status/<string:responsable>/<string:docu
 api.add_resource(GetUser, "/user/<string:user_id>")
 api.add_resource(GetVerified, "/verified")
 api.add_resource(UpdatePost,"/edit/<string:documento>/<string:datos>/<string:realizado>/<string:diferencia>/<string:porque>/<string:resultados>")
-
+api.add_resource(GetSearch,"/search/<string:nombre>/<string:area>/<string:solucion>/<string:proceso>")
 
 
 # Main --> run the server

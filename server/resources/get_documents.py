@@ -15,7 +15,6 @@ collection = db.objeto_de_conocimiento
 class GetDocuments(Resource):
 
     def get(self):
-
         query = {"verificado": False}
         documents = list(collection.find(query, {"_id": 0}))
         if len(documents) > 0:
@@ -23,7 +22,7 @@ class GetDocuments(Resource):
             result = json.loads(documents)
             documents = []
             for i in range(0, len(result)):
-                documents.append((result[i]['nombre'], result[i]['responsable'], result[i]['especialidad'], result[i]['area'], result[i]['datos'], result[i]['realizado'], result[i]['diferencia'], result[i]['porque'], result[i]['resultados'], result[i]['repeticion']))
+                documents.append((result[i]['nombre'], result[i]['responsable'], result[i]['especialidad'], result[i]['area'], result[i]['datos'], result[i]['realizado'], result[i]['diferencia'], result[i]['porque'], result[i]['resultados'], result[i]['repeticion'], result[i]['solucion'],result[i]['proceso']))
             return documents
         else:
             return "No hay documentos"

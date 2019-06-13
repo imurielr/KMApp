@@ -6,6 +6,8 @@
             <mat-card-subtitle><b>Responsable:</b> {{document[1]}}</mat-card-subtitle>
             <mat-card-subtitle><b>Especialidad:</b> {{document[2]}}</mat-card-subtitle>
             <mat-card-subtitle><b>Área:</b> {{document[3]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Solución o producto:</b> {{document[10]}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Proceso:</b> {{document[11]}}</mat-card-subtitle>
             <mat-card-subtitle><b>Datos generales:</b> {{document[4]}}</mat-card-subtitle>
             <mat-card-subtitle><b>¿Qué se hizo?:</b> {{document[5]}}</mat-card-subtitle>
             <mat-card-subtitle><b>Diferencias:</b> {{document[6]}}</mat-card-subtitle>
@@ -14,7 +16,7 @@
             <mat-card-subtitle *ngIf="document[9]!=''"><b>¿Se repite?:</b> {{document[9]}}</mat-card-subtitle>
             <mat-card-subtitle><b>Fecha límite de validez:</b>  
               <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue', adaptivePosition: true, showWeekNumbers: false }" id="validez" class="form-control" style="width: 110px;" required>
-            </mat-card-subtitle>
+            </mat-card-subtitle>            
           </mat-card-header>
         <mat-card-actions>
             <button mat-button style="margin-left: 5%;" (click)="show=false;"><mdb-icon fas icon="times" fixedWidth="true" size="md" style="color: red;"></mdb-icon></button>
@@ -37,7 +39,7 @@
                 <td>{{i+1}}</td>
                 <td>{{doc[0]}}</td>
                 <td>{{doc[1]}}</td>
-                <td><button class="btn" (click)="show=true; document=[doc[0], doc[1], doc[2], doc[3], doc[4], doc[5], doc[6], doc[7], doc[8], doc[9]]" style="display: block; margin: 0 auto; padding: 1px;">Verificar</button></td>
+                <td><button class="btn" (click)="show=true; document=[doc[0], doc[1], doc[2], doc[3], doc[4], doc[5], doc[6], doc[7], doc[8], doc[9], doc[10], doc[11]]" style="display: block; margin: 0 auto; padding: 1px;">Verificar</button></td>
               </tr>
             </tbody>
           </table>

@@ -13,7 +13,7 @@
       </div>
       <div class="form-group">
           <label for="autor">Responsable</label>
-          <input type="text" readonly class="form-control" id="autor" value="{{authService?.user?.displayName}}" required>
+          <input placeholder="Excribe algo" type="text" readonly class="form-control" id="autor" value="{{authService?.user?.displayName}}" required>
       </div>
       <div class="form-group">
         <label for="especialidad">Especialidad</label>
@@ -22,8 +22,22 @@
         </select>
       </div>
       <div class="form-group">
-          <label for="area">Área</label>
-          <input type="text" class="form-control" id="area" required> 
+        <label for="solucion">Solución o producto</label>
+        <select class="form-control" id="solucion" required>
+          <option *ngFor="let solucion of soluciones" [value]="solucion">{{ solucion }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="proceso">Proceso</label>
+        <select class="form-control" id="proceso" required>
+          <option *ngFor="let proceso of procesos" [value]="proceso">{{ proceso}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="area">Área</label>
+        <select class="form-control" id="area" required>
+          <option *ngFor="let area of areas" [value]="area">{{ area}}</option>
+        </select>
       </div>
       <div class="form-group">
           <label for="datos">Datos generales</label>
@@ -31,19 +45,19 @@
       </div>
       <div class="form-group">
           <label for="realizado">¿Qué se hizo?</label>
-          <textarea class="form-control" id="realizado" rows="3" required></textarea>
+          <textarea class="form-control" id="realizado" rows="3" placeholder="Un breve resumen del tema central del objeto. Los pasos o acciones a seguir para solucionar o dar por completada la tarea."required></textarea>
       </div>
       <div class="form-group">
           <label for="diferencia">¿En qué se diferencia de lo que se ha hecho anteriormente?</label>
-          <textarea class="form-control" id="diferencia" rows="3" required></textarea>
+          <textarea class="form-control" id="diferencia" rows="3" placeholder="¿Existe algo similar que no tenga validez o se este usando?"required></textarea>
       </div>
       <div class="form-group">
           <label for="porque">¿Por qué se hizo?</label>
-          <textarea class="form-control" id="porque" rows="3" required></textarea>
+          <textarea class="form-control" id="porque" rows="3" placeholder="¿Cual es el propósito de la creación de este informe u objeto?"required></textarea>
       </div>
       <div class="form-group">
           <label for="resultados">¿Cuáles fueron los resultados?</label>
-          <textarea class="form-control" id="resultados" rows="3" required></textarea>
+          <textarea class="form-control" id="resultados" rows="3" placeholder="¿Se resolvió el problema o se genero una nueva oportunidad de producto o servicio?"required></textarea>
       </div>
       <div class="form-group">
           <label for="repetible">¿Es probable que se repita el evento?</label>

@@ -24,6 +24,9 @@ export class FormComponent {
   public show = false;
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];
+  soluciones = ['KMAPP','Sucursal Virtual','Nequi','Wikity','Billetera'];
+  areas =['TI','Desarrollo','Soporte','Investigacion','Prevención de riesgos'];
+  procesos = ['Desarrollo','Solución de problemas','Despliegue','Front','Back','Bugs'];
 
   nombre: string;
   tema: string;
@@ -37,6 +40,8 @@ export class FormComponent {
   resultados: string;
   repetible: boolean;
   repeticion: string;
+  solucion : string;
+  proceso : string;
   
   submitted = false;
 
@@ -54,6 +59,8 @@ export class FormComponent {
     this.diferencia = ((document.getElementById('diferencia') as HTMLInputElement).value);
     this.porque = ((document.getElementById('porque') as HTMLInputElement).value);
     this.resultados = ((document.getElementById('resultados') as HTMLInputElement).value);
+    this.solucion = ((document.getElementById('solucion') as HTMLInputElement).value);
+    this.proceso = ((document.getElementById('proceso') as HTMLInputElement).value);
 
     if((document.getElementById('esRepetible') as HTMLInputElement).checked){
       this.repetible = true;
@@ -64,11 +71,11 @@ export class FormComponent {
       this.repeticion = '';
     }
     
-    this.postEntry(this.nombre, this.tema, this.responsable, this.especialidad, this.area, this.datos, this.realizado, this.diferencia, this.porque, this.resultados, this.repetible, this.repeticion);
+    this.postEntry(this.nombre, this.tema, this.responsable, this.especialidad, this.area, this.datos, this.realizado, this.diferencia, this.porque, this.resultados, this.repetible, this.repeticion,this.solucion,this.proceso);
   }
 
-  postEntry(nombre: string, tema: string, responsable: string, especialidad: string, area: string, datos: string, realizado: string, diferencia: string, porque: string, resultados: string, repetible: boolean, repeticion: string){
-    if(nombre === '' || tema === '' || responsable === '' || area === '' || datos === '' || realizado === '' || diferencia === '' || porque === '' || resultados === ''){
+  postEntry(nombre: string, tema: string, responsable: string, especialidad: string, area: string, datos: string, realizado: string, diferencia: string, porque: string, resultados: string, repetible: boolean, repeticion: string,solucion:string,proceso:string){
+    if(nombre === '' || tema === '' || responsable === '' || area === '' || datos === '' || realizado === '' || diferencia === '' || porque === '' || resultados === '' || solucion=='' || proceso ==''){
       console.log("ERROR")
       this.tituloMensaje = "ERROR";
       this.mensaje = "Ingrese todos los datos obligatorios.";
@@ -87,6 +94,8 @@ export class FormComponent {
         resultados: resultados,
         repetible: repetible,
         repeticion: repeticion,
+        solucion: solucion,
+        proceso: proceso,
       })
       .subscribe(
         res => {

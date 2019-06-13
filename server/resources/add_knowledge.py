@@ -21,6 +21,8 @@ parser.add_argument('porque')
 parser.add_argument('resultados')
 parser.add_argument('repetible')
 parser.add_argument('repeticion')
+parser.add_argument('solucion')
+parser.add_argument('proceso')
 
 collection = db.objeto_de_conocimiento
 
@@ -47,7 +49,9 @@ class AddKnowledge(Resource):
                     "repeticion": args["repeticion"],
                     "fecha_publicacion": datetime.datetime.utcnow(),
                     "ultima_modificacion": datetime.datetime.utcnow(),
-                    "verificado": False
+                    "verificado": False,
+                    "solucion": args["solucion"],
+                    "proceso": args["proceso"],
                 }
 
         # Add the knowledge object to the database using the dictionary
