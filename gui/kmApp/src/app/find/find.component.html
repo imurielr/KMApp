@@ -5,7 +5,7 @@
             <br>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Todos"required>
+              <input type="text" class="form-control" id="nombre" placeholder="Todos">
             </div>
             <div class="form-group">
                 <label for="area">Área</label>
@@ -27,7 +27,7 @@
             </div> 
         </form> 
         <div style="text-align: left;">
-            <button style="margin-left: 130px" class="btn btn-success" (click)="fillResults();showResults=true;">Buscar</button>
+            <button style="margin-left: 130px" class="btn btn-success" (click)="fillResults();showResults=true;showDetail=false;">Buscar</button>
         </div> 
         <div *ngIf="showResults" class="float-md-right split right" style="max-width: 50%; " id="scrolltablei">
             <mat-card>

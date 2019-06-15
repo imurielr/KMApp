@@ -18,8 +18,9 @@ class GetSearch(Resource):
     def get(self,nombre,area,solucion,proceso):
         """ Returns all the documents that are verified in the database """
         query = {}
-        if(nombre != 'null'):
-            query["nombre"]=nombre
+        #collection.create_index([('nombre', 'text'),('tema','text'),('datos','text'),('realizado','text')])
+        #if(nombre != 'null'):
+        #    query["nombre"]=nombre
         if(area != 'Todas'):
             query["area"]=area
         if(solucion != 'Todas'):
@@ -28,7 +29,13 @@ class GetSearch(Resource):
             query["proceso"]=proceso 
         query["verificado"]=True          
         
-        documents = list(collection.find(query, {"_id": 0}))
+       # documents = list(collection.find(query, {"_id": 0}))
+        if(nombre !='null'):
+            cursor =collection.find({"$and":[query,{"$text": {"$search": nombre}}]},{'score':{'$meta':'textScore'}})
+            documents=list(cursor.sort([('score', {'$meta': 'textScore'})]))
+        else:
+            documents = list(collection.find(query, {"_id": 0}))   
+
         if len(documents) > 0:
             documents = json.dumps(documents, default=GetSearch.myconverter)
             result = json.loads(documents)
