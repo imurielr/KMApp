@@ -1,7 +1,7 @@
 <div style="text-align:center">
   <br><br><br>
   <h1 class="bienvenido">Bienvenido!</h1>
-  <div *ngIf="authService.authenticated; then welcomeUser else signInPrompt"></div>
+  <div *ngIf="authService.authenticated; then welcomeUser else "></div>
   <ng-template #welcomeUser>
     <!-- CAMBIAR VENTANA A MENU PRINCIPAL -->
     <button hidden id="menu" routerLink="../menuPrincipal"></button>

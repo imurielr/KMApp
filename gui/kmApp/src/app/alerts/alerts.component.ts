@@ -10,7 +10,7 @@ import { Alert } from '../alert';
 })
 export class AlertsComponent implements OnInit {
 
-  constructor(private alertsService: AlertsService) { }
+  constructor(public alertsService: AlertsService) { }
 
   ngOnInit() {
   }

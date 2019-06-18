@@ -15,12 +15,13 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class FormComponent {
 
-  constructor(private http: HttpClient, private authService: AuthService, private modalService: BsModalService) { }
+  constructor(private http: HttpClient, public authService: AuthService, private modalService: BsModalService) { }
 
   modalRef: BsModalRef;
 
   public tituloMensaje: string;
   public mensaje: string;
+  public document;
   public show = false;
 
   especialidades  = ['Asesor', 'Medio', 'Experto', 'Director'];

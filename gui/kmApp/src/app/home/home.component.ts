@@ -13,7 +13,7 @@ import { API_URL } from '../env';
 })
 export class HomeComponent {
 
-  constructor(private authService: AuthService, private http: HttpClient) {}
+  constructor(public authService: AuthService, private http: HttpClient) {}
 
   async signIn(): Promise<void> {
     await this.authService.signIn(); 

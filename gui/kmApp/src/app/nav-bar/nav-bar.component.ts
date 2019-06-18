@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
 
   public documents = this.authService.getUser().then(user => this.getOutdated(user.displayName));
   
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  constructor(public authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
     this.showNav = false;
