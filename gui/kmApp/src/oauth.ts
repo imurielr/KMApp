@@ -1,5 +1,5 @@
 export const OAuthSettings = {
-    appId: 'da8d1e7a-3430-4741-aac9-a23adada3a15',
+    appId: 'f005e76f-c398-422e-a50b-b765f65396eb',
     scopes: [
       "user.read",
     ]

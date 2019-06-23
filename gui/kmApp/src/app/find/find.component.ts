@@ -67,7 +67,6 @@ export class FindComponent implements OnInit {
   
 
   async onSubmit(name){
-    
     this.nombre= name;
     this.datos = ((document.getElementById('datos') as HTMLInputElement).value);
     this.realizado = ((document.getElementById('realizado') as HTMLInputElement).value);
